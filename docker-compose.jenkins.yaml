@@ -1,0 +1,11 @@
+version: '2.1'
+services:
+  java:
+    image: gradle:7.4.2-jdk11
+    volumes:
+      - ./:/pl-p-demo:cached
+      - ~/.gradle/gradle.properties:/pl-p-demo/gradle-user-home/gradle.properties:ro
+    working_dir: /ims-automation
+    environment:
+      JAVA_OPTS: "-Dfile.encoding=UTF-8"
+      GRADLE_USER_HOME: "/pl-p-demo/gradle-user-home"
